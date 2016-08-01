@@ -9,6 +9,7 @@ if (document.querySelector(".grid")) {
 var $internalLinks = document.querySelectorAll(".internal");
 var $content = document.querySelector(".content");
 var fadeOutTime = 1000;
+var smoothScrolloptions = { speed: 800, easing: 'easeOutCubic', updateURL: false };
 
 [].map.call($internalLinks, function($link) {
 	$link.addEventListener("click", function(event) {
@@ -16,8 +17,7 @@ var fadeOutTime = 1000;
 		var href = $link.href;
 		$content.classList.add("leaving-content");
 
-		var options = { speed: 800, easing: 'easeOutCubic', updateURL: false };
-		smoothScroll.animateScroll( '#top', 0, options );
+		smoothScroll.animateScroll( '#top', 0, smoothScrolloptions );
 
 		setTimeout(function() {
 			location.href = href;
@@ -29,10 +29,15 @@ var fadeOutTime = 1000;
 
 document.onkeydown = function(event) {
 	if (event.keyCode == 8) {
-		console.log("just hit backspace");
 		event.preventDefault();
+		$content.classList.add("leaving-content");
 
-		location.href = document.referrer;
+		smoothScroll.animateScroll( '#top', 0, smoothScrolloptions );
+
+		setTimeout(function() {
+			location.href = document.referrer;
+		}, fadeOutTime);
+
 		return false;
 	}
 };

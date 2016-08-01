@@ -201,7 +201,6 @@ body {
           box-sizing: border-box;
   color: #0A0A0B;
   font-family: 'Merriweather Sans', sans-serif;
-  font-weight: 300;
   overflow-y: scroll; }
 
 img {
@@ -291,6 +290,14 @@ h4, .h4 {
 /*
 	ACTUAL CONTENT STUFF
 */
+::-moz-selection {
+  background: #ff1c2e;
+  color: #fff; }
+
+::selection {
+  background: #ff1c2e;
+  color: #fff; }
+
 .inverse {
   background: #0A0A0B;
   color: #fff; }
@@ -304,7 +311,7 @@ h4, .h4 {
 .container {
   margin: 0 auto;
   padding-top: 4rem;
-  width: 16rem; }
+  width: 20rem; }
   @media screen and (min-width: 36rem) {
     .container {
       width: 34rem; } }
@@ -384,8 +391,8 @@ h4, .h4 {
   position: relative;
   background: #fff;
   margin-bottom: 2rem;
-  width: 16rem;
-  height: 16rem;
+  width: 20rem;
+  height: 20rem;
   padding: 2rem;
   text-align: center;
   display: -webkit-box;
@@ -394,6 +401,12 @@ h4, .h4 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center; }
+  @media screen and (min-width: 36rem) {
+    .grid-item {
+      width: 16rem;
+      height: 16rem; } }
+  .grid-item h1 {
+    text-align: left; }
   .grid-item a {
     width: 100%; }
   .grid-item a:hover img {
@@ -409,13 +422,17 @@ h4, .h4 {
     position: absolute;
     top: 2rem;
     left: 2rem;
-    width: 12rem;
-    height: 12rem;
+    width: 16rem;
+    height: 16rem;
     display: block;
     -webkit-transition: -webkit-filter 0.2s ease;
     transition: -webkit-filter 0.2s ease;
     transition: filter 0.2s ease;
     transition: filter 0.2s ease, -webkit-filter 0.2s ease; }
+    @media screen and (min-width: 36rem) {
+      .grid-item img {
+        width: 12rem;
+        height: 12rem; } }
   .grid-item .icon {
     fill: #0A0A0B;
     position: absolute;
@@ -435,7 +452,10 @@ h4, .h4 {
 
 .grid-item-tall {
   display: block;
-  height: 34rem; }
+  height: auto; }
+  @media screen and (min-width: 36rem) {
+    .grid-item-tall {
+      height: 34rem; } }
 
 .item-label {
   background: #0A0A0B;

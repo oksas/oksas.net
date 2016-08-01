@@ -2,6 +2,9 @@
 	ACTUAL CONTENT STUFF
 */
 
+::-moz-selection { background: $accent; color: $white; }
+::selection { background: $accent; color: $white; }
+
 .inverse {
 	background: $black;
 	color: $white;
@@ -27,7 +30,7 @@
 	padding-top: $major_spacing;
 	// width: 94%;
 	// width: 52rem;
-	width: 16rem;
+	width: 20rem;
 
 	@include breakpoint(small) {
 		width: 34rem;
@@ -46,6 +49,7 @@
 	text-align: left;
 }
 
+$grid_item_size_small: 20rem;
 $grid_item_size: 16rem;
 
 .content {
@@ -97,13 +101,22 @@ $grid_item_size: 16rem;
 	position: relative;
 	background: $white;
 	margin-bottom: $minor_spacing;
-	width: $grid_item_size;
-	height: $grid_item_size;
+	width: $grid_item_size_small;
+	height: $grid_item_size_small;
 	padding: $minor_spacing;
 	text-align: center;
 
 	display: flex;
 	justify-content: center;
+
+	@include breakpoint(small) {
+		width: $grid_item_size;
+		height: $grid_item_size;
+	}
+
+	h1 {
+		text-align: left;
+	}
 
 	a {
 		width: 100%;
@@ -128,10 +141,15 @@ $grid_item_size: 16rem;
 		position: absolute;
 		top: $minor_spacing;
 		left: $minor_spacing;
-		width: 12rem;
-		height: 12rem;
+		width: 16rem;
+		height: 16rem;
 		display: block;
 		transition: filter $ease;
+
+		@include breakpoint(small) {
+			width: 12rem;
+			height: 12rem;
+		}
 	}
 
 	.icon {
@@ -158,7 +176,11 @@ $grid_item_size: 16rem;
 
 .grid-item-tall {
 	display: block;
-	height: 2*$grid_item_size + $minor_spacing;
+	height: auto;
+
+	@include breakpoint(small) {
+		height: 2*$grid_item_size + $minor_spacing;
+	}
 }
 
 .item-label {
