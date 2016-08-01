@@ -1,0 +1,45 @@
+*, *::after, *::before {
+	box-sizing: inherit;
+}
+
+div {
+	// border: 1px solid red;
+}
+
+body {
+	background: $gray;
+	box-sizing: border-box;
+	color: $black;
+	font-family: 'Merriweather Sans', sans-serif;
+	font-weight: 300;
+}
+
+img {
+	max-width: 100%;
+}
+
+a,
+a:visited {
+	color: $black;
+	display: inline-block;
+	font-weight: 800;
+	position: relative;
+	text-decoration: none;
+
+	&::after {
+		@extend %after;
+		background: $black;
+		bottom: -2px;
+		height: 4px;
+		left: 0;
+		position: absolute;
+		transition: width 0.2s ease;
+		width: 0%;
+	}
+
+	&:hover {
+		&::after {
+			width: 100%;
+		}
+	}
+}

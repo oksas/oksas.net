@@ -1,0 +1,59 @@
+p {
+	text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	display: block;
+	font-family: 'Raleway', sans-serif;
+	margin: 0 0 $minor_spacing;
+}
+
+h1, .h1 {
+	font-size: 3rem;
+	padding-bottom: $mini_spacing;
+	position: relative;
+	text-transform: uppercase;
+
+	&::after {
+		@extend %after;
+		background: $black;
+		bottom: 0;
+		left: 3px;
+		height: 0.5rem;
+		position: absolute;
+		width: 4rem;
+
+		transition: width $ease;
+	}
+}
+
+h2, .h2 {
+	background: $accent;
+	color: $white;
+	display: inline-block;
+	font-size: 2rem;
+	padding: 0 $mini_spacing;
+	text-transform: uppercase;
+
+	&.inverse {
+		background: transparent;
+	}
+}
+
+h3, .h3 {
+	font-size: 1.5rem;
+	text-transform: lowercase;
+}
+
+h4, .h4 {
+	background: $black;
+	color: $white;
+	font-size: 8rem;
+	text-transform: uppercase;
+
+	&.inverse {
+		background: transparent;
+		color: $black;
+	}
+}

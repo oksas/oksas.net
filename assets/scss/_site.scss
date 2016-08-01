@@ -1,0 +1,132 @@
+/*
+	ACTUAL CONTENT STUFF
+*/
+
+.inverse {
+	background: $black;
+	color: $white;
+
+	h1, .h1 {
+		&::after {
+			background-color: $white;
+		}
+	}
+
+	a {
+		color: $white;
+
+		&::after {
+			background-color: $white;
+		}
+	}
+}
+
+.container {
+	margin: 0 auto;
+	// max-width: 60rem;
+	padding-top: $major_spacing;
+	// width: 94%;
+	// width: 52rem;
+	width: 16rem;
+
+	@include breakpoint(small) {
+		width: 34rem;
+	}
+}
+
+.accent {
+	color: $accent;
+}
+
+.welcome {
+	text-align: left;
+}
+
+$grid_item_size: 16rem;
+
+.grid {
+	animation: fadeup 0.8s ease-in-out;
+	animation-fill-mode: forwards;
+	display: flex;
+	flex-flow: row wrap;
+	// column-count: 3;
+}
+
+%grid-section {
+	display: inline-block;
+	vertical-align: top;
+	width: $grid_item_size;
+}
+
+.grid-section-1-2 {
+	@extend %grid-section;
+
+	@include breakpoint(small) {
+		margin-right: $minor_spacing;
+	}
+}
+
+.grid-section-2-2 {
+	@extend %grid-section;
+}
+
+.grid-section-3 {
+	@extend %grid-section;
+}
+
+@keyframes fadeup {
+	from {
+		transform: translate(0, 10rem);
+		opacity: 0;
+	}
+	to {
+		transform: translate(0, 0);
+		opacity: 1;
+	}
+}
+
+.grid-item {
+	position: relative;
+	background: $white;
+	margin-bottom: $minor_spacing;
+	width: $grid_item_size;
+	height: $grid_item_size;
+	padding: $minor_spacing;
+	text-align: center;
+
+	display: flex;
+	justify-content: center;
+
+	img {
+		filter: grayscale(100%);
+		position: absolute;
+		top: $minor_spacing;
+		left: $minor_spacing;
+		width: 12rem;
+		height: 12rem;
+		display: block;
+		margin-bottom: $mini_spacing;
+	}
+
+	.icon {
+		width: 6rem;
+		height: 6rem;
+		top: 5rem;
+		left: 5rem;
+	}
+}
+
+.grid-item-tall {
+	display: block;
+	height: 2*$grid_item_size + $minor_spacing;
+}
+
+.item-label {
+	background: $black;
+	color: $white;
+	letter-spacing: 4px;
+	text-align: center;
+	margin: auto;
+	z-index: 10;
+	width: 100%;
+}

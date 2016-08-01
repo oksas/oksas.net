@@ -1,0 +1,31 @@
+$black: #0A0A0B;
+$white: #fff;
+$gray: #ddd;
+$accent: #ff1c2e;
+
+$ease: 0.2s ease;
+
+$mini_spacing: 0.5rem;
+$minor_spacing: 2rem;
+$major_spacing: 4rem;
+
+$bp_small: "screen and (min-width: 36rem)";
+$bp_medium: "screen and (min-width: 48rem)";
+$bp_large: "screen and (min-width: 64rem)";
+
+@mixin breakpoint($bp) {
+	@if $bp == large {
+		@media #{$bp_large} { @content; }
+	}
+	@if $bp == medium {
+		@media #{$bp_medium} { @content; }
+	}
+	@if $bp == small {
+		@media #{$bp_small} { @content; }
+	}
+}
+
+%after {
+	content: '';
+	display: inline-block;
+}
