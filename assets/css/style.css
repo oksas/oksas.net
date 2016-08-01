@@ -184,7 +184,7 @@ th {
 # Mixins
 --------------------------------------------------------------*/
 p a::after,
-p a:visited::after, h1::after, .h1::after {
+p a:visited::after, h1::after, .h1::after, .slide-btn span::after {
   content: '';
   display: inline-block; }
 
@@ -213,25 +213,27 @@ a:visited {
   color: inherit;
   text-decoration: inherit; }
 
-p a,
-p a:visited {
-  color: #0A0A0B;
-  display: inline;
-  font-weight: 800;
-  position: relative;
-  text-decoration: none; }
-  p a::after,
-  p a:visited::after {
-    bottom: -2px;
-    height: 4px;
-    left: 0;
-    position: absolute;
-    -webkit-transition: width 0.2s ease;
-    transition: width 0.2s ease;
-    width: 0%; }
-  p a:hover::after,
-  p a:visited:hover::after {
-    width: 100%; }
+p {
+  font-size: 0.875rem; }
+  p a,
+  p a:visited {
+    color: #0A0A0B;
+    display: inline;
+    font-weight: 800;
+    position: relative;
+    text-decoration: none; }
+    p a::after,
+    p a:visited::after {
+      bottom: -2px;
+      height: 4px;
+      left: 0;
+      position: absolute;
+      -webkit-transition: width 0.2s ease;
+      transition: width 0.2s ease;
+      width: 0%; }
+    p a:hover::after,
+    p a:visited:hover::after {
+      width: 100%; }
 
 /*--------------------------------------------------------------
 # Typography
@@ -446,3 +448,56 @@ h4, .h4 {
   position: relative;
   -webkit-transition: background 0.2s ease;
   transition: background 0.2s ease; }
+
+.slide-btn {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #ff1c2e), color-stop(50%, #0A0A0B));
+  background-image: -webkit-linear-gradient(left, #ff1c2e 50%, #0A0A0B 50%);
+  background-image: linear-gradient(to right, #ff1c2e 50%, #0A0A0B 50%);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  border: none;
+  color: white !important;
+  display: block;
+  height: 3.2em;
+  line-height: 3.2em;
+  margin: 2rem auto;
+  padding: 0;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  width: 7.6em; }
+
+.slide-btn:hover, .slide-btn:focus {
+  background-position: bottom left;
+  border: none;
+  color: white;
+  padding: 0; }
+
+.slide-btn span {
+  font-weight: 800;
+  position: relative; }
+  .slide-btn span::after {
+    background: #fff;
+    bottom: -2px;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    -webkit-transition: width 0.2s ease-out;
+    transition: width 0.2s ease-out;
+    width: 0%; }
+
+.slide-btn:hover span,
+.slide-btn:focus span {
+  color: white; }
+  .slide-btn:hover span::after,
+  .slide-btn:focus span::after {
+    width: 100%; }
+
+.back-link {
+  margin-bottom: 4rem; }
+
+.back-arrow {
+  position: relative;
+  top: 8px;
+  margin-right: 4px; }

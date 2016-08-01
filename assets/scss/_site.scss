@@ -172,3 +172,62 @@ $grid_item_size: 16rem;
 	position: relative;
 	transition: background $ease;
 }
+
+.slide-btn {
+	background-image: linear-gradient(to right, #{$accent} 50%, #{$black} 50%);
+	background-size: 200% 100%;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	border: none;
+	color: white !important;
+  display: block;
+  height: 3.2em;
+  line-height: 3.2em;
+	margin: $minor_spacing auto;
+	padding: 0;
+	text-align: center;
+  transition: all 0.2s ease-out;
+	width: 7.6em;
+}
+
+.slide-btn:hover, .slide-btn:focus {
+  background-position: bottom left;
+  border: none;
+	color: white;
+	padding: 0;
+}
+
+.slide-btn span {
+	font-weight: 800;
+	position: relative;
+
+	&::after {
+		@extend %after;
+		background: $white;
+		bottom: -2px;
+		height: 3px;
+		left: 0;
+		position: absolute;
+		transition: width 0.2s ease-out;
+		width: 0%;
+	}
+}
+
+.slide-btn:hover span,
+.slide-btn:focus span {
+  color: white;
+
+	&::after {
+		width: 100%;
+	}
+}
+
+.back-link {
+	margin-bottom: $major_spacing;
+}
+
+.back-arrow {
+	position: relative;
+	top: 8px;
+	margin-right: 4px;
+}

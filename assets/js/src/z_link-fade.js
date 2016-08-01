@@ -16,7 +16,7 @@ var fadeOutTime = 1000;
 		var href = $link.href;
 		$content.classList.add("leaving-content");
 
-		var options = { speed: 800, easing: 'easeInOut' };
+		var options = { speed: 800, easing: 'easeOutCubic', updateURL: false };
 		smoothScroll.animateScroll( '#top', 0, options );
 
 		setTimeout(function() {
@@ -26,3 +26,13 @@ var fadeOutTime = 1000;
 		return false;
 	});
 });
+
+document.onkeydown = function(event) {
+	if (event.keyCode == 8) {
+		console.log("just hit backspace");
+		event.preventDefault();
+
+		location.href = document.referrer;
+		return false;
+	}
+};
