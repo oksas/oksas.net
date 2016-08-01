@@ -20,26 +20,35 @@ img {
 
 a,
 a:visited {
-	color: $black;
-	display: inline-block;
-	font-weight: 800;
-	position: relative;
-	text-decoration: none;
+	display: inherit;
+	color: inherit;
+	text-decoration: inherit;
+}
 
-	&::after {
-		@extend %after;
-		background: $black;
-		bottom: -2px;
-		height: 4px;
-		left: 0;
-		position: absolute;
-		transition: width 0.2s ease;
-		width: 0%;
-	}
+p {
+	a,
+	a:visited {
+		color: $black;
+		display: inline-block;
+		font-weight: 800;
+		position: relative;
+		text-decoration: none;
 
-	&:hover {
 		&::after {
-			width: 100%;
+			@extend %after;
+			background: $black;
+			bottom: -2px;
+			height: 4px;
+			left: 0;
+			position: absolute;
+			transition: width 0.2s ease;
+			width: 0%;
+		}
+
+		&:hover {
+			&::after {
+				width: 100%;
+			}
 		}
 	}
 }

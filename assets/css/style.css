@@ -183,8 +183,8 @@ th {
 /*--------------------------------------------------------------
 # Mixins
 --------------------------------------------------------------*/
-a::after,
-a:visited::after, h1::after, .h1::after {
+p a::after,
+p a:visited::after, h1::after, .h1::after {
   content: '';
   display: inline-block; }
 
@@ -208,13 +208,19 @@ img {
 
 a,
 a:visited {
+  display: inherit;
+  color: inherit;
+  text-decoration: inherit; }
+
+p a,
+p a:visited {
   color: #0A0A0B;
   display: inline-block;
   font-weight: 800;
   position: relative;
   text-decoration: none; }
-  a::after,
-  a:visited::after {
+  p a::after,
+  p a:visited::after {
     background: #0A0A0B;
     bottom: -2px;
     height: 4px;
@@ -223,8 +229,8 @@ a:visited {
     -webkit-transition: width 0.2s ease;
     transition: width 0.2s ease;
     width: 0%; }
-  a:hover::after,
-  a:visited:hover::after {
+  p a:hover::after,
+  p a:visited:hover::after {
     width: 100%; }
 
 /*--------------------------------------------------------------
@@ -300,6 +306,9 @@ h4, .h4 {
   @media screen and (min-width: 36rem) {
     .container {
       width: 34rem; } }
+  @media screen and (min-width: 54rem) {
+    .container {
+      width: 52rem; } }
 
 .accent {
   color: #ff1c2e; }
@@ -307,25 +316,17 @@ h4, .h4 {
 .welcome {
   text-align: left; }
 
-.grid {
+.content {
   -webkit-animation: fadeup 0.8s ease-in-out;
           animation: fadeup 0.8s ease-in-out;
   -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: row wrap;
-      flex-flow: row wrap; }
+          animation-fill-mode: forwards; }
 
-.grid-section-1-2, .grid-section-2-2, .grid-section-3 {
-  display: inline-block;
-  vertical-align: top;
-  width: 16rem; }
-
-@media screen and (min-width: 36rem) {
-  .grid-section-1-2 {
-    margin-right: 2rem; } }
+.leaving-content {
+  -webkit-animation: fadedown 0.8s ease-in-out;
+          animation: fadedown 0.8s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes fadeup {
   from {
@@ -347,6 +348,26 @@ h4, .h4 {
             transform: translate(0, 0);
     opacity: 1; } }
 
+@-webkit-keyframes fadedown {
+  from {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+    opacity: 1; }
+  to {
+    -webkit-transform: translate(0, 10rem);
+            transform: translate(0, 10rem);
+    opacity: 0; } }
+
+@keyframes fadedown {
+  from {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+    opacity: 1; }
+  to {
+    -webkit-transform: translate(0, 10rem);
+            transform: translate(0, 10rem);
+    opacity: 0; } }
+
 .grid-item {
   position: relative;
   background: #fff;
@@ -361,6 +382,15 @@ h4, .h4 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center; }
+  .grid-item a {
+    width: 100%; }
+  .grid-item a:hover img {
+    -webkit-filter: grayscale(0%);
+            filter: grayscale(0%); }
+  .grid-item a:hover .icon {
+    fill: #ff1c2e; }
+  .grid-item a:hover .item-label {
+    background: #ff1c2e; }
   .grid-item img {
     -webkit-filter: grayscale(100%);
             filter: grayscale(100%);
@@ -370,12 +400,26 @@ h4, .h4 {
     width: 12rem;
     height: 12rem;
     display: block;
-    margin-bottom: 0.5rem; }
+    -webkit-transition: -webkit-filter 0.2s ease;
+    transition: -webkit-filter 0.2s ease;
+    transition: filter 0.2s ease;
+    transition: filter 0.2s ease, -webkit-filter 0.2s ease; }
   .grid-item .icon {
+    fill: #0A0A0B;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 6rem;
     height: 6rem;
-    top: 5rem;
-    left: 5rem; }
+    -webkit-transition: fill 0.2s ease;
+    transition: fill 0.2s ease; }
+
+.grid-item-me:hover img {
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%); }
 
 .grid-item-tall {
   display: block;
@@ -388,4 +432,7 @@ h4, .h4 {
   text-align: center;
   margin: auto;
   z-index: 10;
-  width: 100%; }
+  width: 100%;
+  position: relative;
+  -webkit-transition: background 0.2s ease;
+  transition: background 0.2s ease; }

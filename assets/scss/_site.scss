@@ -32,6 +32,10 @@
 	@include breakpoint(small) {
 		width: 34rem;
 	}
+
+	@include breakpoint(medium) {
+		width: 52rem;
+	}
 }
 
 .accent {
@@ -44,34 +48,14 @@
 
 $grid_item_size: 16rem;
 
-.grid {
+.content {
 	animation: fadeup 0.8s ease-in-out;
 	animation-fill-mode: forwards;
-	display: flex;
-	flex-flow: row wrap;
-	// column-count: 3;
 }
 
-%grid-section {
-	display: inline-block;
-	vertical-align: top;
-	width: $grid_item_size;
-}
-
-.grid-section-1-2 {
-	@extend %grid-section;
-
-	@include breakpoint(small) {
-		margin-right: $minor_spacing;
-	}
-}
-
-.grid-section-2-2 {
-	@extend %grid-section;
-}
-
-.grid-section-3 {
-	@extend %grid-section;
+.leaving-content {
+	animation: fadedown 0.8s ease-in-out;
+	animation-fill-mode: forwards;
 }
 
 @keyframes fadeup {
@@ -82,6 +66,17 @@ $grid_item_size: 16rem;
 	to {
 		transform: translate(0, 0);
 		opacity: 1;
+	}
+}
+
+@keyframes fadedown {
+	from {
+		transform: translate(0, 0);
+		opacity: 1;
+	}
+	to {
+		transform: translate(0, 10rem);
+		opacity: 0;
 	}
 }
 
@@ -97,6 +92,24 @@ $grid_item_size: 16rem;
 	display: flex;
 	justify-content: center;
 
+	a {
+		width: 100%;
+	}
+
+	a:hover {
+		img {
+			filter: grayscale(0%);
+		}
+
+		.icon {
+			fill: $accent;
+		}
+
+		.item-label {
+			background: $accent;
+		}
+	}
+
 	img {
 		filter: grayscale(100%);
 		position: absolute;
@@ -105,14 +118,28 @@ $grid_item_size: 16rem;
 		width: 12rem;
 		height: 12rem;
 		display: block;
-		margin-bottom: $mini_spacing;
+		transition: filter $ease;
 	}
 
 	.icon {
+		fill: $black;
+		position: absolute;
+		margin: auto;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
 		width: 6rem;
 		height: 6rem;
-		top: 5rem;
-		left: 5rem;
+		transition: fill $ease;
+	}
+}
+
+.grid-item-me {
+	&:hover {
+		img {
+			filter: grayscale(0%);
+		}
 	}
 }
 
@@ -129,4 +156,6 @@ $grid_item_size: 16rem;
 	margin: auto;
 	z-index: 10;
 	width: 100%;
+	position: relative;
+	transition: background $ease;
 }
