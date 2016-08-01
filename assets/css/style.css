@@ -201,7 +201,8 @@ body {
           box-sizing: border-box;
   color: #0A0A0B;
   font-family: 'Merriweather Sans', sans-serif;
-  font-weight: 300; }
+  font-weight: 300;
+  overflow-y: scroll; }
 
 img {
   max-width: 100%; }
@@ -215,13 +216,12 @@ a:visited {
 p a,
 p a:visited {
   color: #0A0A0B;
-  display: inline-block;
+  display: inline;
   font-weight: 800;
   position: relative;
   text-decoration: none; }
   p a::after,
   p a:visited::after {
-    background: #0A0A0B;
     bottom: -2px;
     height: 4px;
     left: 0;
@@ -327,6 +327,16 @@ h4, .h4 {
           animation: fadedown 0.8s ease-in-out;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards; }
+
+.project {
+  background: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  width: 100%; }
+  .project img {
+    margin: 2rem auto;
+    display: block;
+    width: 600px; }
 
 @-webkit-keyframes fadeup {
   from {

@@ -1,9 +1,10 @@
 // If you're wondering, the z in the filename is to ensure masonry gets loaded first; there's probably a better way to do that though
-
-var mason = new Masonry(".grid", {
-	itemSelector: ".grid-item",
-	gutter: 32
-});
+if (document.querySelector(".grid")) {
+	var mason = new Masonry(".grid", {
+		itemSelector: ".grid-item",
+		gutter: 32
+	});
+}
 
 var $internalLinks = document.querySelectorAll(".internal");
 var $content = document.querySelector(".content");
@@ -14,6 +15,9 @@ var fadeOutTime = 1000;
 		event.preventDefault();
 		var href = $link.href;
 		$content.classList.add("leaving-content");
+
+		var options = { speed: 800, easing: 'easeInOut' };
+		smoothScroll.animateScroll( '#top', 0, options );
 
 		setTimeout(function() {
 			location.href = href;

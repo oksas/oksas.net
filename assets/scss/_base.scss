@@ -12,6 +12,7 @@ body {
 	color: $black;
 	font-family: 'Merriweather Sans', sans-serif;
 	font-weight: 300;
+	overflow-y: scroll;
 }
 
 img {
@@ -29,14 +30,14 @@ p {
 	a,
 	a:visited {
 		color: $black;
-		display: inline-block;
+		display: inline;
 		font-weight: 800;
 		position: relative;
 		text-decoration: none;
 
 		&::after {
 			@extend %after;
-			background: $black;
+			// background: $black;
 			bottom: -2px;
 			height: 4px;
 			left: 0;

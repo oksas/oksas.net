@@ -58,6 +58,19 @@ $grid_item_size: 16rem;
 	animation-fill-mode: forwards;
 }
 
+.project {
+	background: $white;
+	padding: $minor_spacing;
+	margin-bottom: $minor_spacing;
+	width: 100%;
+
+	img {
+		margin: $minor_spacing auto;
+		display: block;
+		width: 600px;
+	}
+}
+
 @keyframes fadeup {
 	from {
 		transform: translate(0, 10rem);
