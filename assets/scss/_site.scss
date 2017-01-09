@@ -53,12 +53,12 @@ $grid_item_size_small: 20rem;
 $grid_item_size: 16rem;
 
 .content {
-	animation: fadeup 0.8s ease-in-out;
+	animation: fadeup 0.6s ease-in-out;
 	animation-fill-mode: forwards;
 }
 
 .leaving-content {
-	animation: fadedown 0.8s ease-in-out;
+	animation: fadedown 0.6s ease-in-out;
 	animation-fill-mode: forwards;
 }
 
